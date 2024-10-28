@@ -1,16 +1,26 @@
 # config file version
 apiVersion: 1
 
-# list of datasources to insert/update
-# available in the database
+# list of datasources to insert/update in the database
 datasources:
   - name: PostgreSQL
+    # The name of the datasource as it will appear in Grafana
     type: postgres
-    access: proxy # which way to access the database
-    url: db.:5432 # match port number in docker-compose.yml
-    database: test # database name
+    # Specifies that this is a PostgreSQL datasource
+    access: proxy
+    # 'proxy' means Grafana will access the database, not the browser
+    url: db.:5432
+    # The URL and port of the PostgreSQL server
+    # 'db.' likely refers to a Docker service name
+    database: test
+    # The name of the database to connect to
     user: postgres
+    # The username for database authentication
     secureJsonData:
-      password: 'example' # password in docker-compose.yml
+      password: 'example'
+      # The password for database authentication
+      # Note: In production, use more secure methods to manage secrets
     jsonData:
       sslmode: 'disable'
+      # Disables SSL for the database connection
+      # Note: In production, you should enable SSL for security

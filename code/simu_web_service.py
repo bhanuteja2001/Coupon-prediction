@@ -1,6 +1,6 @@
-"""send a request to the web service and get a response"""
 import requests
 
+# Define the coupon receiver data
 coupon_receiver = {
     "destination": ["No Urgent Place", "Home", "Work"],
     "weather": ["Sunny", "Rainy", "Snowy"],
@@ -11,6 +11,18 @@ coupon_receiver = {
     "coupon_accepting": [0, 0, 0],
 }
 
+# Define the URL of your web service
 URL = "http://localhost:9696/predict"
-response = requests.post(URL, json=coupon_receiver, timeout=3)  # timeout (seconds)
-print(response.json())
+
+try:
+    # Send a POST request to the web service
+    response = requests.post(URL, json=coupon_receiver, timeout=5)
+    
+    # Check if the request was successful
+    response.raise_for_status()
+    
+    # Print the JSON response
+    print(response.json())
+
+except requests.exceptions.RequestException as e:
+    print(f"An error occurred: {e}")

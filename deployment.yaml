@@ -1,13 +1,16 @@
+# Prefect Deployment Configuration
+
 deployments:
-- name: null
-  version: null
-  tags: []
-  description: null
-  schedule: {}
-  flow_name: null
-  entrypoint: null
-  parameters: {}
-  work_pool:
-    name: null
-    work_queue_name: null
-    job_variables: {}
+  # Each item in this list represents a separate deployment
+  - name: null  # The name of the deployment (should be set)
+    version: null  # Version of the deployment (optional)
+    tags: []  # List of tags for organizing and filtering deployments
+    description: null  # A brief description of what this deployment does
+    schedule: {}  # Define a schedule for automatic execution (if needed)
+    flow_name: null  # The name of the flow to be deployed (should be set)
+    entrypoint: null  # The entry point for the flow (e.g., "file_name:flow_function")
+    parameters: {}  # Any parameters to be passed to the flow
+    work_pool:
+      name: null  # The name of the work pool to use (if applicable)
+      work_queue_name: null  # The specific work queue within the pool (if applicable)
+      job_variables: {}  # Any variables needed for job execution

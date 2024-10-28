@@ -1,24 +1,25 @@
 apiVersion: 1
 
 providers:
-  # <string> an unique provider name. Required
+  # This section defines dashboard providers for Grafana
   - name: 'Evidently Dashboards'
-    # <int> Org id. Default to 1
+    # A unique name for this provider, likely for Evidently AI dashboards
     orgId: 1
-    # <string> name of the dashboard folder.
+    # The organization ID in Grafana, default is 1
     folder: ''
-    # <string> folder UID. will be automatically generated if not specified
+    # The name of the folder to store dashboards, empty means root
     folderUid: ''
-    # <string> provider type. Default to 'file'
+    # Unique identifier for the folder, auto-generated if not specified
     type: file
-    # <bool> disable dashboard deletion
+    # Provider type, 'file' means dashboards are stored as files
     disableDeletion: false
-    # <int> how often Grafana will scan for changed dashboards
+    # If true, prevents dashboard deletion via the Grafana UI
     updateIntervalSeconds: 10
-    # <bool> allow updating provisioned dashboards from the UI
+    # How often Grafana checks for dashboard file changes (in seconds)
     allowUiUpdates: false
+    # If false, prevents dashboard updates via the Grafana UI
     options:
-      # <string, required> path to dashboard files on disk. Required when using the 'file' type
       path: /opt/grafana/dashboards
-      # <bool> use folder names from filesystem to create folders in Grafana
+      # The file system path where dashboard JSON files are stored
       foldersFromFilesStructure: true
+      # If true, Grafana will create folders based on the file system structure
