@@ -1,48 +1,55 @@
-# Coupon Accepting Prediction
-## Project Description
-This project is a MLOps project for MLOps Zoomcamp course by DataTalks.Club. The goal of this project is to enhance my understanding of building an MLOps pipeline. The main model used for predicting whether a person will accept recommended coupons while they are in their vehicles is XGBoost because I want to try a tree-based model in the classification problem. The dataset utilized for this project is the "In-Vehicle Coupon Recommendation" dataset from the UCI Machine Learning Repository. The dataset contains various features related to users, merchants, and the coupons to be recommended.
 
-## Dataset Description
-[source](https://archive.ics.uci.edu/dataset/603/in+vehicle+coupon+recommendation)   
-I have selected some features that I am interrested in. The features are as follows:
-- destination: The person's destination {No Urgent Place, Home, Work}
-- weather: Weather type {Sunny, Rainy, Snowy}
-- time: Time of the day {7AM, 10AM, 2PM, 6PM, 10PM}
-- coupon: Coupon category {Restaurant(<$20), Restaurant($20-$50), Coffee House, Bar, Carry out & Take away}
-- expiration: the time the coupon will expire in 2 hours or 1 day {2h, 1d}
-- direction_same: The person's destination and the merchant's location are at the same direction {0(No), 1(Yes)}
+# Coupon Acceptance Prediction Pipeline
 
-## Technologies Used
-* Python==3.9
-  - pipenv==2023.6.26
-  - scikit-learn==1.22
-  - xgboost==1.7.5
-  - pylint 
-  - black 
-  - isort 
-  - pre-commit
-* MLflow==2.4
-* Prefect==2.11.2
-* Docker
-* AWS
-  - EC2   
-  - S3    
-  - RDS   
-* Terraform
-#### Description
-Initially, Terraform is employed to establish AWS resources like EC2 (to function as the MLflow tracking server), S3 (for storing tfstate and MLflow models), and RDS (to serve as the MLflow backend database). Next, MLflow is used to track parameters and metrics of the experiment and find the optimal model to be registered for production. This entire workflow can be orchestrated and scheduled through Prefect, which also supports notifications like emails or other methods. For model deployment, Docker can help to create a server to handle prediction result requests. To be more automated, a CI/CD pipeline can be implemented with GitHub Actions through the yml file. The pipeline will be triggered when a new commit is pushed to the develop branch.         
-Python modules: 
-- environment: pipenv
-- format and lint: pylint, black, isort, pre-commit
-- model: scikit-learn, xgboost
+## Project Overview
+This MLOps project aims to predict whether individuals will accept recommended coupons while in their vehicles. Utilizing the XGBoost model, we focus on creating an efficient MLOps pipeline to enhance prediction accuracy and streamline the deployment process.
 
+## Data Source
+We use the "In-Vehicle Coupon Recommendation" dataset from the UCI Machine Learning Repository. This dataset provides rich information about users, merchants, and coupon characteristics.
 
-## AWS Resources used in this project 
-![AWS resource](https://github.com/ChungWasawat/dtc_mlops_project/blob/main/img/aws.png)
+## Key Features
+- Destination (No Urgent Place, Home, Work)
+- Weather Conditions (Sunny, Rainy, Snowy)
+- Time of Day (7AM, 10AM, 2PM, 6PM, 10PM)
+- Coupon Categories (Restaurant(<$20), Restaurant($20-$50), Coffee House, Bar, Carry out & Take away)
+- Expiration Time (2 hours, 1 day)
+- Direction Alignment (0: No, 1: Yes)
 
-## Project Deployment Instructions
-[create infrastruce with Terraform](https://github.com/ChungWasawat/dtc_mlops_project/blob/main/code/infrastructure/README.md)    
-[implement code](https://github.com/ChungWasawat/dtc_mlops_project/blob/main/code/README.md)    
+## Technology Stack
+- Python 3.9
+- MLflow 2.4
+- Prefect 2.11.2
+- Docker
+- AWS (EC2, S3, RDS)
+- Terraform
 
-## Special Thanks:
-I would like to thank DataTalks.Club for providing this course. Through this learning experience, I have gained a comprehensive understanding of how to create an MLOps pipeline. The tools introduced in the course were very helpful, and some of them were new to me, despite my previous studies in Data Science at university. I am eager to apply this knowledge to my future work. 
+## Core Components
+1. **Infrastructure**: Terraform for AWS resource management
+2. **Experimentation**: MLflow for experiment tracking and model registry
+3. **Orchestration**: Prefect for workflow management and scheduling
+4. **Deployment**: Docker for containerized model serving
+5. **CI/CD**: GitHub Actions for automated pipeline execution
+
+## Implementation Workflow
+1. Set up AWS resources using Terraform
+2. Conduct experiments and track results with MLflow
+3. Orchestrate workflows using Prefect
+4. Deploy models using Docker containers
+5. Implement CI/CD pipeline with GitHub Actions
+
+## Getting Started
+1. Clone the repository
+2. Set up the AWS infrastructure using Terraform
+3. Install required Python packages
+4. Run the main pipeline script
+
+For detailed instructions, refer to the documentation in the `code/` directory.
+
+## Contribution
+We welcome contributions! Please see our contributing guidelines for more information.
+
+## Acknowledgements
+Special thanks to the UCI Machine Learning Repository for providing the dataset and to all contributors who have helped shape this project.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
