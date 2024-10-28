@@ -1,5 +1,3 @@
-Certainly! I'll update the README to include the development flow and the CI/CD process. Here's an enhanced version of the README:
-
 # Coupon Acceptance Prediction Pipeline
 
 ## Project Overview

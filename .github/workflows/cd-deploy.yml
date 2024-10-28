@@ -16,10 +16,10 @@
 # MLflow or other model versioning tools.
 
 name: CD-Deploy
-on:
-  push:
-    branches:
-      - 'develop'
+# on:
+#   push:
+#     branches:
+      # - 'develop'
     # Uncomment and modify the following to trigger only on specific file changes
     # paths:
     #   - 'code/**'

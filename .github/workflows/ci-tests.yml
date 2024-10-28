@@ -19,12 +19,12 @@
 
 name: CI-Tests
 
-on:
-  pull_request:
-    branches:
-      - 'develop'
-    paths:
-      - 'code/**'
+# on:
+#   pull_request:
+#     branches:
+#       - 'develop'
+#     paths:
+#       - 'code/**'
 
 env:
   AWS_DEFAULT_REGION: 'eu-west-2'
