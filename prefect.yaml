@@ -16,6 +16,6 @@ push: null
 pull:
   # Use the git_clone_project step to clone the project repository
   - prefect.projects.steps.git_clone_project:
-      repository: https://github.com/ChungWasawat/dtc_mlops_project.git  # The GitHub repository URL
+      repository: https://github.com/xxxx  # The GitHub repository URL
       branch: develop  # The branch to clone (in this case, 'develop')
       access_token: null  # No access token provided, assumes public repository
