@@ -3,6 +3,12 @@
 ## Project Overview
 This MLOps project predicts coupon acceptance in vehicles using the XGBoost model. It implements a complete machine learning pipeline, from data preprocessing to model deployment, with a focus on MLOps best practices.
 
+
+## Architecture
+![img.png](CopounArch.png)
+
+
+
 ## Data Source
 The project uses the "In-Vehicle Coupon Recommendation" dataset from the UCI Machine Learning Repository, providing rich information about users, merchants, and coupon characteristics.
 
